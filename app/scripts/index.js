@@ -20,7 +20,7 @@ const BBO = contract(bboArtifact)
 // As your needs grow you will likely need to change its form and structure.
 // For application bootstrapping, check out window.addEventListener below.
 let accounts
-let account
+var account
 
 const App = {
   start: function () {
@@ -47,6 +47,13 @@ const App = {
       
       self.refreshBalance()
     })
+
+    var accountInterval = setInterval(function() {
+      if (web3.eth.accounts[0] !== account) {
+        account = web3.eth.accounts[0];
+        self.refreshBalance();
+      }
+    }, 100);
   },
 
   setStatus: function (message) {
