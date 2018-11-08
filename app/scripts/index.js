@@ -97,9 +97,19 @@ const App = {
 
 window.App = App
 
-window.addEventListener('load', function () {
-  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-  if (typeof web3 !== 'undefined') {
+window.addEventListener('load',async () => {
+  if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+            // Request account access if needed
+            await ethereum.enable();
+           
+        } catch (error) {
+          alert('User denied account access...');
+          window.location.reload();
+            // User denied account access...
+        }
+    } else if (typeof web3 !== 'undefined') {
     console.warn(
       'Using web3 detected from external source.' +
       ' If you find that your accounts don\'t appear or you have 0 BBOFaucet,' +
