@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BBO Faucet</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <script src="./app.js"></script>
+  <style type="text/css">
+    span.ropsten-icon {
+    font-size: 11px;
+    font-weight: 700;
+    color: grey;
+    padding-left: 2px;
+}
+  </style>
+</head>
+<body>
+  <p><img src="https://staging-landing.bigbom.net/images/logos/Bigbom.svg" /><span class="ropsten-icon">ROPSTEN</span></p>
+  <h1>BBO Ropsten (Testnet) Faucet</h1>
+
+  <h3>Your address <span style="color:blue" id="address"></span></h3>
+  <p>Balance: <span class="black"><span id="balance"></span> BBO</span></p>
+  
+  <br><br><button class="btn btn-primary" id="send" onclick="App.faucet()">Request Faucet</button>
+  <br><br>
+  <span id="status"></span>
+  <br>
+</body>
+</html>
