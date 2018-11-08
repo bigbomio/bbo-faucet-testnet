@@ -1,13 +1,16 @@
 {
   "name": "bbo-faucet-ropsten",
   "version": "0.0.2",
+  "homepage": "https://bigbomio.github.io/bbo-faucet-testnet",
   "description": "BBO Faucet Testnet",
   "scripts": {
-    "test": "truffle test",
+    "test": "./node_modules/.bin/truffle test",
     "lint": "eslint ./",
-    "prepare": "truffle compile && npm test && webpack-cli --config ./webpack.config.js",
+    "prepare": "./node_modules/.bin/truffle compile && ./node_modules/.bin/truffle test && ./node_modules/.bin/webpack-cli --config ./webpack.config.js",
     "build": "npm install",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "Chris Nguyen",
   "license": "MIT",
@@ -29,6 +32,7 @@
     "eslint-plugin-mocha": "^4.8.0",
     "eslint-plugin-promise": "^3.0.0",
     "eslint-plugin-standard": "^2.0.0",
+    "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
     "json-loader": "^0.5.7",
     "node-sass": "^4.9.0",
